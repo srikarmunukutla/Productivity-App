@@ -4,6 +4,7 @@ import ToDo from './ToDo';
 
 export default class ToDoList extends React.Component{
     state = {
+        day:this.props.day,
         todos: [],
         todoToShow: "all",
         toggleAllComplete: true
@@ -64,6 +65,7 @@ export default class ToDoList extends React.Component{
 
         return(
             <div>
+                <h1>{this.state.day}</h1>
                 <ToDoForm onSubmit = {this.addToDo}/>
                 {todos.map(todo => (
                     <ToDo
@@ -73,7 +75,7 @@ export default class ToDoList extends React.Component{
                         todo={todo}/>
                 ))}
                 <div>
-                    todos left: {this.state.todos.filter(todo => !todo.complete).length}
+                    items left: {this.state.todos.filter(todo => !todo.complete).length}
                 </div>
                 <div>
                     <button onClick={() => this.updateTodoToShow("all")}>all</button>
@@ -85,7 +87,7 @@ export default class ToDoList extends React.Component{
                     </button>
                 </div>
                 {this.state.todos.some(todo => todo.complete) ? (<div>
-                    <button onClick={this.removeAllTodosThatAreComplete}>remove all complete todos</button>
+                    <button onClick={this.removeAllTodosThatAreComplete}>remove all complete items</button>
                 </div>) : null}
                 <div>
                     <button
@@ -98,7 +100,7 @@ export default class ToDoList extends React.Component{
                         toggleAllComplete: !this.state.toggleAllComplete
                     }))
                     }
-                    >toggle all complete: {`${this.state.toggleAllComplete}`}</button>
+                    >make all: {this.state.toggleAllComplete ? "complete" : "active"}</button>
                 </div>
             </div>
         );

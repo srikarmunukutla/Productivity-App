@@ -22,7 +22,27 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <ToDoList />
+        <div className="Day">
+          <ToDoList day="Sun"/>
+        </div>
+        <div className="Day">
+          <ToDoList day="Mon"/>
+        </div>
+        <div className="Day">
+          <ToDoList day="Tues"/>
+        </div>
+        <div className="Day">
+          <ToDoList day="Wed"/>
+        </div>
+        <div className="Day">
+          <ToDoList day="Thurs"/>
+        </div>
+        <div className="Day">
+          <ToDoList day="Fri"/>
+        </div>
+        <div className="Day">
+          <ToDoList day="Sat"/>
+        </div>
       </div>
     );
   }
