@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html>
     <head>
+      <link rel="stylesheet" href="login.css">
+      <link href='https://fonts.googleapis.com/css?family=Comfortaa' rel='stylesheet'>
     </head>
     <body>
         <h1>Log In</h1>
         <form>
             <div class="form-group">
-                <label for="email">Email</label>
                 <input
                   type="email"
                   id="email"
@@ -16,7 +17,6 @@
                 />
               </div>
               <div class="form-group">
-                <label for="password">Password</label>
                 <input
                   type="password"
                   id="password"
@@ -25,7 +25,9 @@
                   placeholder="Enter Password"
                 />
               </div>
-              <button type="submit">Login</button>
+              <div class="button-holder">
+                <button type="submit">Log In</button>
+              </div>
         </form>
         <p>No Account? <a href="./signup.html">Sign Up</a></p>
     </body>

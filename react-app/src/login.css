@@ -1,0 +1,57 @@
+h1 { 
+    font-family: 'Comfortaa';
+    font-size: 72px;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 80px;
+    text-align: center;
+  }
+
+input {
+    background-color:rgba(151, 59, 183, 0.14);
+    color: black;
+    width: 506px;
+    height: 41px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-family: 'Comfortaa';
+    font-size: 24px;
+  }
+
+button {
+    background-color: #453BB7;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 8px 0;
+    cursor: pointer;
+    font-family: 'Comfortaa';
+    border-radius: 10px;
+    width: 506px;
+    height: 41px;
+  }
+
+p {
+    font-family: 'Comfortaa';
+    text-align: center;
+    font-size: 12px;
+}
+
+/*a {
+    background-color: #453BB7;
+    border: none;
+    color: white;
+    padding: 8px 16px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+    font-family: 'Comfortaa';
+    border-radius: 10px;
+  }*/
+
+.form-group, .button-holder{
+    text-align:center
+}
