@@ -1,48 +1,68 @@
 import React, { Component } from "react";
 import "./App.css";
 import ToDoList from "./ToDoList";
+import login from "./login.js";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import signup from "./signup";
 
 class App extends Component {
   state = {
-    count: 0
+    count: 0,
   };
 
   increment = () => {
     this.setState({
-      count: this.state.count + 1
+      count: this.state.count + 1,
     });
   };
 
   decrement = () => {
     this.setState({
-      count: this.state.count - 1
+      count: this.state.count - 1,
     });
   };
 
-  render() {
+  dashboard() {
     return (
       <div className="App">
         <div className="Day">
-          <ToDoList day="Sun"/>
+          <ToDoList day="Sun" />
         </div>
         <div className="Day">
-          <ToDoList day="Mon"/>
+          <ToDoList day="Mon" />
         </div>
         <div className="Day">
-          <ToDoList day="Tues"/>
+          <ToDoList day="Tues" />
         </div>
         <div className="Day">
-          <ToDoList day="Wed"/>
+          <ToDoList day="Wed" />
         </div>
         <div className="Day">
-          <ToDoList day="Thurs"/>
+          <ToDoList day="Thurs" />
         </div>
         <div className="Day">
-          <ToDoList day="Fri"/>
+          <ToDoList day="Fri" />
         </div>
         <div className="Day">
-          <ToDoList day="Sat"/>
+          <ToDoList day="Sat" />
         </div>
+      </div>
+    );
+  }
+
+  render() {
+    return (
+      <div>
+        <Router>
+          <Switch>
+            <Route path="/" exact component={login} />
+            <Route path="/login" exact component={login} />
+            <Route path="/dashboard" exact>
+              {this.dashboard()}
+            </Route>
+            <Route path="/signup" exact component={signup} />
+          </Switch>
+        </Router>
       </div>
     );
   }
