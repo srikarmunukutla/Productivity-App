@@ -6,14 +6,14 @@ import ToDoList from "./ToDoList";
 
 export default function Dashboard() {
   const [error, setError] = useState("");
-  const { currentUser, logout } = useAuth();
+  const currentUser = localStorage.getItem("User Email");
   const history = useHistory();
 
   async function handleLogout() {
     setError("");
 
     try {
-      await logout();
+      localStorage.removeItem("User Email");
       history.push("/login");
     } catch {
       setError("Failed to log out");
@@ -54,7 +54,7 @@ export default function Dashboard() {
         <Card.Body>
           <h2 className="text-center mb-4">Profile</h2>
           {error && <Alert variant="danger">{error}</Alert>}
-          <strong>Email:</strong> {currentUser.email}
+          <strong>Email:</strong> {currentUser}
         </Card.Body>
       </Card>
       {dashboard()}

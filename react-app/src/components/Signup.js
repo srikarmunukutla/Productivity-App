@@ -2,6 +2,7 @@ import React, { useRef, useState } from "react";
 import { Form, Button, Card, Alert } from "react-bootstrap";
 import { useAuth } from "../contexts/AuthContext";
 import { Link, useHistory } from "react-router-dom";
+import axios from "axios";
 
 export default function Signup() {
   const emailRef = useRef();
@@ -19,16 +20,27 @@ export default function Signup() {
       return setError("Passwords do not match");
     }
 
-    try {
-      setError("");
-      setLoading(true);
-      await signup(emailRef.current.value, passwordRef.current.value);
-      history.push("/");
-    } catch {
-      setError("Failed to create an account");
-    }
+    setError("");
+    setLoading(true);
+    // await signup(emailRef.current.value, passwordRef.current.value);
+    console.log("Email: " + emailRef.current.value);
 
-    setLoading(false);
+    axios
+      .post("http://localhost:5000/users/register", {
+        name: emailRef.current.value,
+        email: emailRef.current.value,
+        password: passwordRef.current.value,
+        password2: passwordConfirmRef.current.value,
+      })
+      .then((res) => {
+        console.log(res);
+        localStorage.setItem("User Email", res.data.email);
+        history.push("/");
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
 
   return (
