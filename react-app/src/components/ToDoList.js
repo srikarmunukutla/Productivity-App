@@ -75,21 +75,17 @@ export default class ToDoList extends React.Component {
           />
         ))}
         <div>
-          items left: {this.state.todos.filter((todo) => !todo.complete).length}
+          Items Left: {this.state.todos.filter((todo) => !todo.complete).length}
         </div>
         <div>
-          <button onClick={() => this.updateTodoToShow("all")}>all</button>
-          <button onClick={() => this.updateTodoToShow("active")}>
-            active
-          </button>
-          <button onClick={() => this.updateTodoToShow("complete")}>
-            complete
-          </button>
+          <button onClick={() => this.updateTodoToShow("all")}>All</button>
+          <button onClick={() => this.updateTodoToShow("active")}>Active</button>
+          <button onClick={() => this.updateTodoToShow("complete")}>Complete</button>
         </div>
         {this.state.todos.some((todo) => todo.complete) ? (
           <div>
             <button onClick={this.removeAllTodosThatAreComplete}>
-              remove all complete items
+              Remove All Complete Items
             </button>
           </div>
         ) : null}
@@ -105,7 +101,7 @@ export default class ToDoList extends React.Component {
               }))
             }
           >
-            make all: {this.state.toggleAllComplete ? "complete" : "active"}
+            Make All: {this.state.toggleAllComplete ? "complete" : "active"}
           </button>
         </div>
       </div>

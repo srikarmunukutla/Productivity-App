@@ -61,6 +61,9 @@ app.use(passport.session());
 app.use("/", require("./routes/index"));
 app.use("/users", require("./routes/users"));
 console.log("After /users");
+// app.get('/users/register', function (req, res) {
+//   res.send('hello');
+// })
 
 const PORT = process.env.PORT || 5000;
 
