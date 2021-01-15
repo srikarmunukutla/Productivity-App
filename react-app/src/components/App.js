@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./App.css";
 
 import login from "./login.js";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Signup from "./Signup";
 import { AuthProvider } from "../contexts/AuthContext";
 import Dashboard from "./Dashboard";
