@@ -33,7 +33,7 @@ class App extends Component {
             <Switch>
               <PrivateRoute path="/" exact component={Dashboard} />
               <Route path="/login" exact component={login} />
-              <Route path="/dashboard" exact componet={Dashboard} />
+              <Route path="/dashboard" exact component={Dashboard} />
               {/* {this.dashboard()} */}
               {/* </Route> */}
               <Route path="/signup" component={Signup} />
