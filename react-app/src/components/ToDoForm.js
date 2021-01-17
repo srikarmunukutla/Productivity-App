@@ -1,7 +1,8 @@
 import React from 'react';
 import shortid from 'shortid';
-const express = require("express");
-const router = express.Router();
+import axios from 'axios';
+// const express = require("express");
+// const router = express.Router();
 
 export default class ToDoForm extends React.Component{
     state = {
@@ -16,19 +17,33 @@ export default class ToDoForm extends React.Component{
 
     handleSubmit = (event) => {
         event.preventDefault();
+        const todo = { 
+            id : shortid.generate(), 
+            text : this.state.text, 
+            complete: false }
+        
         this.props.onSubmit({
-            id: shortid.generate(),
-            text:this.state.text,
-            complete:false
+            id: todo.id,
+            text: todo.text,
+            complete: todo.complete
         });
         this.setState({
             text: ""
         });
 
-        router.post("/todo", (req, res) => {
-            // add to MongoDB database
-            // initial code was scrapped b/c didn't work
-        });
+        axios.post("http://localhost:5000/todo", todo)
+            .then((res) => {
+                console.log(res);
+                // this.props.onSubmit(todo);
+                // this.setState({text: ""});
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+        // router.post("/todo", (req, res) => {
+        //     // add to MongoDB database
+        //     // initial code was scrapped b/c didn't work
+        // });
     }
 
     render(){

@@ -26,17 +26,20 @@ router.post("/register", (req, res) => {
   // Check required fields
   if (!name || !email || !password || !password2) {
     errors.push({ msg: "Please fill in all fields" });
+    // req.flash("Please fill in all fields");
   }
 
   console.log("Step 2");
   // Check passwords match
   if (password != password2) {
     errors.push({ msg: "Passwords do not match" });
+    // req.flash("Passwords do not match");
   }
 
   // Check pass length
   if (password.length < 6) {
     errors.push({ msg: "Password is less than 6 characters long" });
+    // req.flash("Password is less than 6 characters long");
   }
 
   if (errors.length > 0) {
@@ -76,7 +79,7 @@ router.post("/register", (req, res) => {
             if (err) throw err;
 
             // Set password to hashed
-            newUser.password = hash;
+            // newUser.password = hash;
 
             // Save User
             newUser

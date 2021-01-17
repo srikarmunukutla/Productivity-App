@@ -2,7 +2,7 @@ import React, { useRef, useState } from "react";
 import { Form, Button, Card, Alert } from "react-bootstrap";
 // import { useAuth } from "../contexts/AuthContext";
 import { Link, useHistory } from "react-router-dom";
-// import axios from "axios";
+import axios from "axios";
 
 export default function Login() {
   const emailRef = useRef();
@@ -18,10 +18,24 @@ export default function Login() {
     try {
       setError("");
       setLoading(true);
+      axios
+        .post("http://localhost:5000/login", {
+          name: emailRef.current.value,
+          email: emailRef.current.value,
+          password: passwordRef.current.value,
+        })
+        .then((res) => {
+          console.log(res);
+          localStorage.setItem("User Email", res.data.email);
+          history.push("/");
+          setLoading(false);
+        })
+        .catch((err) => {
+          console.log(err);
+      });
       // CALL AXIOS
       // .then.catch correctly
       // await login(emailRef.current.value, passwordRef.current.value);
-      history.push("/");
     } catch {
       setError("Failed to log in");
     }

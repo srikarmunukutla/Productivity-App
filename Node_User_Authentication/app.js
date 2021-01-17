@@ -60,6 +60,8 @@ app.use(passport.session());
 // Routes
 app.use("/", require("./routes/index"));
 app.use("/users", require("./routes/users"));
+app.use("/todo", require("./routes/todo"));
+app.use("/login", require("./routes/login"));
 console.log("After /users");
 // app.get('/users/register', function (req, res) {
 //   res.send('hello');
